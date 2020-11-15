@@ -18,9 +18,9 @@
  */
 
 val Versions = new {
-  val junitJupiter = "5.1.1"
-  val junitPlatform = "1.1.1"
-  val junitVintage = "5.1.1"
+  val junitJupiter = "5.6.2"
+  val junitPlatform = "1.6.2"
+  val junitVintage = "5.6.2"
   val testInterface = "1.0"
 }
 
@@ -53,10 +53,10 @@ lazy val library = (project in file("src/library"))
 
 lazy val plugin = (project in file("src/plugin"))
   .dependsOn(library)
+  .enablePlugins(SbtPlugin)
   .settings(
     name := "sbt-jupiter-interface",
     sbtPlugin := true,
-    scriptedSettings,
     scriptedBufferLog := false,
     scriptedLaunchOpts ++= Seq(
       s"-Dproject.version=${version.value}",
